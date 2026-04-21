@@ -4,6 +4,6 @@ exports.ok = function(values,res){
         'status' : 200,
         'valus' : values
     }
-    res.josn(data);
+    res.json(data);
     res.end();
 }
