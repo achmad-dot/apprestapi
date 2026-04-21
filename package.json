@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/achmad-dot/apprestapi/issues"
   },
-  "homepage": "https://github.com/achmad-dot/apprestapi#readme"
+  "homepage": "https://github.com/achmad-dot/apprestapi#readme",
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "express": "^5.2.1",
+    "mysql": "^2.18.1"
+  }
 }
