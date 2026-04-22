@@ -66,3 +66,29 @@ exports.ubahMahasiswa = function(req,res){
 
 }
 
+// menghapus data mahasiswa berdasarkan id
+exports.hapusMahasiswa = function(req,res){
+    var id = req.query.id_mahasiswa;    
+    connection.query('DELETE FROM mahasiswa WHERE id_mahasiswa=?',[id],
+        function(error,rows,fields){
+            if(error){
+                console.log(error);
+            }else {
+                response.ok("Data Mahasiswa dengan id ini berasil di hapus",res);
+            }
+        });
+}
+// Menampilkan matakuliah group
+exports.tampilangroupmatakuliah = function(req,res){
+    connection.query("SELECT mahasiswa.id_mahasiswa,mahasiswa.nim,mahasiswa.nama,mahasiswa.jurusan,matakuliah.matakuliah,matakuliah.sks FROM krs JOIN matakuliah JOIN mahasiswa WHERE KRS.id_matakuliah = matakuliah.id_matakuliah AND krs.id_mahasiswa = mahasiswa.id_mahasiswa ORDER BY mahasiswa.id_mahasiswa",
+        function(error,rows,fields)        {
+            if(error){
+                console.log(error);
+            }else{
+                response.nestedok(rows,res);
+            }
+        }
+    )
+}
+
+
